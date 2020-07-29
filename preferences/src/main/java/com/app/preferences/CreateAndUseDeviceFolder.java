@@ -28,10 +28,16 @@ public class CreateAndUseDeviceFolder
        if(checkAndRequestPermissions()==0) {
            try {
                File inFile = new File(file + "/" + foldername);
-               if (!inFile.exists()) {
+               if(!inFile.exists())
+               {
                    inFile.mkdir();
                    return true;
                }
+               else
+               {
+                   return true;
+               }
+
            } catch (Exception e) {
                e.printStackTrace();
            }
