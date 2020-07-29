@@ -12,7 +12,7 @@ import java.util.List;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+//Todo Developed by Ravi 
 public class CreateAndUseDeviceFolder
 {
     private File file;
@@ -42,13 +42,12 @@ public class CreateAndUseDeviceFolder
 
     public boolean deleteFolder(String foldername)
     {
-        if(checkAndRequestPermissions()==0) {
+        if(checkAndRequestPermissions()==0)
+        {
             try {
                 File inFile = new File(file.getAbsolutePath() + "/" + foldername);
-                if (!inFile.exists()) {
-                    inFile.delete();
-                    return true;
-                }
+                return inFile.delete();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,8 +60,9 @@ public class CreateAndUseDeviceFolder
         if(checkAndRequestPermissions()==0) {
             try {
                 File root = new File(file.getAbsolutePath() + "/" + foldername+"/");
-                if (!root.exists()) {
-                    root.mkdirs();
+                if (!root.exists())
+                {
+                    root.createNewFile();
                 }
                 File f = new File(root.getAbsolutePath()+filename);
                 return f.createNewFile();
@@ -93,7 +93,6 @@ public class CreateAndUseDeviceFolder
 
     private int checkAndRequestPermissions()
     {
-
         int readExternal = ContextCompat.checkSelfPermission(ct, Manifest.permission.READ_EXTERNAL_STORAGE);
         int writeExternal = ContextCompat.checkSelfPermission(ct, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         List<String> listPermissionsNeeded = new ArrayList<>();
