@@ -46,6 +46,12 @@ public class CreateAndUseDeviceFolder
         {
             try {
                 File inFile = new File(file.getAbsolutePath() + "/" + foldername);
+
+                File[] files=inFile.listFiles();
+                for(int x=0;x<files.length;x++)
+                {
+                    files[x].delete();
+                }
                 return inFile.delete();
 
             } catch (Exception e) {
@@ -65,6 +71,10 @@ public class CreateAndUseDeviceFolder
                     root.mkdir();
                 }
                 File f = new File(root.getAbsolutePath()+"/"+filename);
+                if(f.exists())
+                {
+                    return true;
+                }
                 return f.createNewFile();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -77,13 +87,16 @@ public class CreateAndUseDeviceFolder
 
     public boolean deleteFile(String foldername,String filename)
     {
-        if(checkAndRequestPermissions()==0) {
+        if(checkAndRequestPermissions()==0)
+          {
             try {
                 File root = new File(file.getAbsolutePath() + "/" + foldername);
                 File f = new File(root.getAbsolutePath()+"/"+filename);
-                if (f.exists()) {
+                if (f.exists())
+                {
                     return f.delete();
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
