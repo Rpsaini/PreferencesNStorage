@@ -44,7 +44,7 @@ public class CreateAndUseDeviceFolder
     {
         if(checkAndRequestPermissions()==0) {
             try {
-                File inFile = new File(file + "/" + foldername);
+                File inFile = new File(file.getAbsolutePath() + "/" + foldername);
                 if (!inFile.exists()) {
                     inFile.delete();
                     return true;
@@ -60,11 +60,11 @@ public class CreateAndUseDeviceFolder
     {
         if(checkAndRequestPermissions()==0) {
             try {
-                File root = new File(file.getAbsolutePath() + "/" + foldername);
+                File root = new File(file.getAbsolutePath() + "/" + foldername+"/");
                 if (!root.exists()) {
                     root.mkdirs();
                 }
-                File f = new File(root.getAbsolutePath() + filename);
+                File f = new File(root.getAbsolutePath()+filename);
                 return f.createNewFile();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -79,7 +79,7 @@ public class CreateAndUseDeviceFolder
     {
         if(checkAndRequestPermissions()==0) {
             try {
-                File root = new File(file.getAbsolutePath() + "/" + foldername);
+                File root = new File(file.getAbsolutePath() + "/" + foldername+"/");
                 File f = new File(root.getAbsolutePath() + filename);
                 if (f.exists()) {
                     return f.delete();
