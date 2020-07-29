@@ -29,7 +29,7 @@ public class CreateAndUseDeviceFolder
            try {
                File inFile = new File(file + "/" + foldername);
                if (!inFile.exists()) {
-                   inFile.createNewFile();
+                   inFile.mkdir();
                    return true;
                }
            } catch (Exception e) {

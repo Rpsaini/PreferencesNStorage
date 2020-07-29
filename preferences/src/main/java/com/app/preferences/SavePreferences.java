@@ -25,7 +25,7 @@ public class SavePreferences
         if(ct != null)
         {
             SharedPreferences prefs = ct.getSharedPreferences(prefName, ct.MODE_PRIVATE);
-            if (prefs.contains("device_token")) {
+            if (prefs.contains(shareKey)) {
                 return prefs.getString(shareKey, "");
             }
             else
