@@ -7,17 +7,26 @@ import android.widget.Toast;
 public class SavePreferences
 {
 
-    private String prefName;
+    public static String prefName="";
 
-    public void savePreferencesData(Context ct, Object data, String sharekey,String PrefrenceName)
+
+
+    public void savePreferencesData(Context ct, Object data, String sharekey)
     {
-        prefName=PrefrenceName;
+        
         SharedPreferences sharedpreferences = ct.getSharedPreferences(prefName, ct.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
 
         editor.putString(sharekey, data+"");
 
         editor.commit();
+
+
+
+
+
+
+
     }
 
     public Object reterivePreference(Context ct, String shareKey)
