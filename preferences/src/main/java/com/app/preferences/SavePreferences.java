@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SavePreferences
 {
 
@@ -48,7 +50,7 @@ public class SavePreferences
 
 
 
-    public String getBU(String[] integers)
+    public String getBU(ArrayList<String> integers)
     {
         String str ="";
         for(String  i: integers)
