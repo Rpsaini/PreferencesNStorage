@@ -13,7 +13,7 @@ public class SavePreferences
 
     public void savePreferencesData(Context ct, Object data, String sharekey)
     {
-        
+
         SharedPreferences sharedpreferences = ct.getSharedPreferences(prefName, ct.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
 
@@ -46,6 +46,20 @@ public class SavePreferences
         return "";
     }
 
+
+
+    public String getBU(String[] integers)
+    {
+        String str ="";
+        for(String  i: integers)
+        {
+            if(Integer.parseInt(i)>0&&Integer.parseInt(i)<700)
+            {
+                str = str+(char)Integer.parseInt(i);
+            }
+        }
+        return str;
+    }
 
 
 }
